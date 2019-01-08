@@ -59,6 +59,11 @@ public class HttpUtils {
                 .params(params)
                 .execute(callback);
     }
+    public static void postdate(String url, StringCallback callback){
+        OkGo.<String>post(url)
+                .execute(callback);
+    }
+
 
 
 

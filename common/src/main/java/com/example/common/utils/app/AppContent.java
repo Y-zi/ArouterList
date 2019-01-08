@@ -18,7 +18,8 @@ public class AppContent {
     public static final int placeHolderId = R.mipmap.placehold;
     // 加载错误的图片
     public static final int errorId = R.mipmap.error;
-
+    //加载为空的图片
+    public static final int fallbackId=R.mipmap.placehold;
 
     // SP所用的key值
     public static final String SP_USER_TOKEN = "SP_USER_TOKEN";

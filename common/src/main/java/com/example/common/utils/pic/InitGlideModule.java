@@ -28,6 +28,7 @@ public class InitGlideModule extends AppGlideModule {
                 .setMemoryCache(new LruResourceCache(memoryCacheSize))
                 .setDefaultRequestOptions(new RequestOptions()
                         .error(AppContent.errorId)
+                        .fallback(AppContent.fallbackId)
                         .placeholder(AppContent.placeHolderId));
 /*
 implementation ('com.github.bumptech.glide:glide:4.7.1'){
