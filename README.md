@@ -1,2 +1,2 @@
 # ArouterList
-用于组件集合demo
+用于组件集合
