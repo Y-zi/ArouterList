@@ -1,6 +1,7 @@
 package com.example.vidoview;
 
 import android.media.MediaPlayer;
+import android.os.AsyncTask;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -30,9 +31,11 @@ import com.lzy.okgo.model.Response;
 import com.lzy.okgo.model.Result;
 
 import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
 public class VidoActivity extends BaseActivity {
     //https://kuaiyinshi.com/api/dou-yin/recommend/
     private String url = "https://kuaiyinshi.com/api/kuai-shou/recommend/";
@@ -40,6 +43,8 @@ public class VidoActivity extends BaseActivity {
     private RvAdapter mAdapter;
     private ViewPagerLayoutManager mLayoutManager;
     private List<DataBean> dataBeanslist;
+    private DataBean.Statistics statistics;
+
     //    AutoCompleteTextView auto;
     @Override
     protected int getLayoutId() {
@@ -48,6 +53,7 @@ public class VidoActivity extends BaseActivity {
         getData();
         return R.layout.activity_vido;
     }
+
     @Override
     protected void initView() {
         mRecyclerView = findViewById(R.id.recycler);
@@ -55,21 +61,22 @@ public class VidoActivity extends BaseActivity {
         dataBeanslist = new ArrayList<>();
 //        dataBeanslist.get
         mLayoutManager = new ViewPagerLayoutManager(act, OrientationHelper.VERTICAL);
-
-
-
+//        AsyncTask;
 
     }
+
     @Override
     protected void initData() {
 
     }
+
     @Override
     protected void initListener() {
         mLayoutManager.setOnViewPagerListener(new OnViewPagerListener() {
             @Override
             public void onInitComplete() {
             }
+
             @Override
             public void onPageRelease(boolean isNext, int position) {
                 int index;
@@ -103,15 +110,22 @@ public class VidoActivity extends BaseActivity {
                     JSONObject json = new JSONObject(response.body());
 //                    Result<JsonRootBean> result = JsonUtils.toBean(json.optJSONArray("data"),JsonUtils.newParamType(Result.class,JsonRootBean.class));
 //                    Log.e("huidiao", "result.toString.lenth"+result.toString().length());
-                    List<DataBean> simlist = new Gson().fromJson(json.optJSONArray("data").toString().replace(":null",":\"\""), new TypeToken<List<DataBean>>() {}.getType());
+                    List<DataBean> simlist = new Gson().fromJson(json.optJSONArray("data").toString().replace(":null", ":\"\""), new TypeToken<List<DataBean>>() {
+                    }.getType());
                     dataBeanslist.addAll(simlist);
-                    mAdapter = new RvAdapter(dataBeanslist,act);
+//                    DataBean.Statistics vList = new Gson().fromJson(json.optJSONArray("statistics").toString(), DataBean.Statistics.class);
+//                    Log.d("rst:" , String.valueOf(vList.getZan()));
+//                    Log.d("msg:" , String.valueOf(vList.getComment()));
+//                    Log.d("data:" , String.valueOf(vList.getPlay()));
+
+
+                    mAdapter = new RvAdapter(dataBeanslist, act);
                     mRecyclerView.setLayoutManager(mLayoutManager);
                     mRecyclerView.setAdapter(mAdapter);
                     mAdapter.notifyDataSetChanged();
                     Log.e("huidiao1", String.valueOf(dataBeanslist.size()));
                 } catch (Exception e) {
-                    Log.e("huidiao800",  e.toString());
+                    Log.e("huidiao800", e.toString());
                 }
 
 
