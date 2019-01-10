@@ -18,6 +18,7 @@ import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.load.model.LazyHeaders;
 import com.example.common.utils.http.HttpUtils;
+import com.example.common.utils.pic.PicUtils;
 import com.example.vidoview.R;
 import com.example.vidoview.bean.DataBean;
 import com.example.vidoview.bean.JsonRootBean;
@@ -62,6 +63,10 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
 //        String video_action= "http://aweme.snssdk.com/aweme/v1/play/?video_id=";
         Glide.with(context).load("https:" + dataBean.getVideo_img()).into(viewHolder.video_img);
         Glide.with(context).load("https:" + dataBean.getAvatar()).into(viewHolder.avatar);
+        //二次封装
+//        PicUtils.builder(context).load("https:" + dataBean.getVideo_img()).build(viewHolder.video_img);
+//        PicUtils.builder(context).load("https:" + dataBean.getAvatar()).build(viewHolder.avatar);
+
         //http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4
         //http://flashmedia.eastday.com/newdate/news/2016-11/shznews1125-19.mp4
         //可用
