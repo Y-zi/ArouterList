@@ -17,6 +17,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.load.model.LazyHeaders;
+import com.example.common.utils.algorithm.OpenLock;
 import com.example.common.utils.http.HttpUtils;
 import com.example.common.utils.pic.PicUtils;
 import com.example.vidoview.R;
@@ -63,6 +64,7 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
 //        String video_action= "http://aweme.snssdk.com/aweme/v1/play/?video_id=";
         Glide.with(context).load("https:" + dataBean.getVideo_img()).into(viewHolder.video_img);
         Glide.with(context).load("https:" + dataBean.getAvatar()).into(viewHolder.avatar);
+        Log.d("jiexi", new OpenLock().OpenLock(dataBean.getVideo_url()));
         //二次封装
 //        PicUtils.builder(context).load("https:" + dataBean.getVideo_img()).build(viewHolder.video_img);
 //        PicUtils.builder(context).load("https:" + dataBean.getAvatar()).build(viewHolder.avatar);
@@ -72,7 +74,7 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
         //可用
         //vidourl密文 89 265数字
         //钥匙 175个两位数字
-//        viewHolder.videoView.setVideoURI(Uri.parse("http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"));
+        viewHolder.videoView.setVideoURI(Uri.parse(new OpenLock().OpenLock(dataBean.getVideo_url())));
 //        Log.d("二级", String.valueOf(dataBean.getStatistics().getComment()));
         viewHolder.zan.setText(String.valueOf(dataBean.getStatistics().getZan())+"赞");
         viewHolder.comment.setText(String.valueOf(dataBean.getStatistics().getComment()));

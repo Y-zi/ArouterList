@@ -40,7 +40,7 @@ public class VidoActivity extends BaseActivity {
     //https://kuaiyinshi.com/api/dou-yin/recommend/
     //https://kuaiyinshi.com/api/kuai-shou/recommend/
     //https://kuaiyinshi.com/api/mei-pai/recommend/
-    private String url = "https://kuaiyinshi.com/api/mei-pai/recommend/";
+    private String url = "https://kuaiyinshi.com/api/kuai-shou/recommend/";
     private RecyclerView mRecyclerView;
     private RvAdapter mAdapter;
     private ViewPagerLayoutManager mLayoutManager;
