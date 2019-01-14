@@ -1,7 +1,9 @@
 package com.example.vidoview;
 
+import android.content.DialogInterface;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -40,7 +42,7 @@ public class VidoActivity extends BaseActivity {
     //https://kuaiyinshi.com/api/dou-yin/recommend/
     //https://kuaiyinshi.com/api/kuai-shou/recommend/
     //https://kuaiyinshi.com/api/mei-pai/recommend/
-    private String url = "https://kuaiyinshi.com/api/kuai-shou/recommend/";
+    private String url = "https://kuaiyinshi.com/api/mei-pai/recommend/";
     private RecyclerView mRecyclerView;
     private RvAdapter mAdapter;
     private ViewPagerLayoutManager mLayoutManager;
@@ -119,8 +121,6 @@ public class VidoActivity extends BaseActivity {
 //                    Log.d("rst:" , String.valueOf(vList.getZan()));
 //                    Log.d("msg:" , String.valueOf(vList.getComment()));
 //                    Log.d("data:" , String.valueOf(vList.getPlay()));
-
-
                     mAdapter = new RvAdapter(dataBeanslist, act);
                     mRecyclerView.setLayoutManager(mLayoutManager);
                     mRecyclerView.setAdapter(mAdapter);
@@ -135,7 +135,17 @@ public class VidoActivity extends BaseActivity {
 
             @Override
             public void onError(Response<String> response) {
-                Log.e("error_net", response.message().toString());
+                AlertDialog.Builder alertDialog2 = new AlertDialog.Builder(act)
+                        .setMessage("请检查网络")
+                        .setIcon(R.mipmap.ic_launcher)
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {//添加"Yes"按钮
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                finish();
+                            }
+                        });
+                alertDialog2.show();
+//                Log.e("error_net", response.message().toString());
             }
         });
     }

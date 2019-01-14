@@ -1,1 +1,1 @@
-include ':app', ':common', ':action', ':zhongtai', ':bluetooth', ':lazyviewpager', ':vidoview'
+include ':app', ':common', ':action', ':zhongtai', ':bluetooth', ':lazyviewpager', ':vidoview',':utils'

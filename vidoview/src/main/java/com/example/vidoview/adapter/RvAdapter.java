@@ -54,17 +54,18 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        Log.e("huidiao2", String.valueOf(dataBeanslist.size()));
-//        holder.img_thumb.setImageResource(imgs[position % 5]);
+//        Log.e("huidiao2", String.valueOf(dataBeanslist.size()));
 //        holder.videoView.setVideoURI(Uri.parse("android.resource://" + "com.example.administrator.douyinviewpager" + "/" + videos[position % 5]));
         final DataBean dataBean = dataBeanslist.get(i);
 //        final DataBean.Statistics statistics=dataBean.getStatistics();
         viewHolder.nickname.setText(dataBean.getNickname());
 
 //        String video_action= "http://aweme.snssdk.com/aweme/v1/play/?video_id=";
+
         Glide.with(context).load("https:" + dataBean.getVideo_img()).into(viewHolder.video_img);
         Glide.with(context).load("https:" + dataBean.getAvatar()).into(viewHolder.avatar);
-        Log.d("jiexi", new OpenLock().OpenLock(dataBean.getVideo_url()));
+        Log.d("tupian", "https:"+dataBean.getVideo_img()+"\n"+dataBean.getVideo_url()+"\n"+new OpenLock().OpenLock(dataBean.getVideo_url()));
+//        Log.d("jiexi", );
         //二次封装
 //        PicUtils.builder(context).load("https:" + dataBean.getVideo_img()).build(viewHolder.video_img);
 //        PicUtils.builder(context).load("https:" + dataBean.getAvatar()).build(viewHolder.avatar);
