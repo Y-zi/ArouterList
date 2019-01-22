@@ -4,12 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black">
+    android:background="@android:color/black"
+    android:layout_gravity="center_vertical">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler"
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/smartpefresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        >
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
     <android.support.constraint.Group
         android:id="@+id/group"
@@ -20,14 +28,13 @@
 
     <ImageView
         android:id="@+id/tb"
-        android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:src="@mipmap/search_icon"
         android:tint="#f2f2f2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/textView1" />
+
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
@@ -50,8 +57,6 @@
         app:layout_constraintLeft_toRightOf="@id/textView1"
         app:layout_constraintRight_toLeftOf="@id/select" />
 
-
-
     <ImageView
         android:id="@+id/select"
         android:layout_width="wrap_content"
@@ -62,16 +67,4 @@
         android:tint="#f2f2f2"
         app:layout_constraintLeft_toRightOf="@id/textView2"
         app:layout_constraintRight_toRightOf="parent" />
-
-
-    <!--<AutoCompleteTextView-->
-        <!--android:id="@+id/auto"-->
-        <!--android:background="@android:color/white"-->
-        <!--android:textColor="@android:color/black"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginBottom="8dp"-->
-        <!--android:lines="15"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent" />-->
-
 </android.support.constraint.ConstraintLayout>

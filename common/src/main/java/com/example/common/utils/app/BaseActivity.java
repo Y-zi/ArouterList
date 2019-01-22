@@ -78,11 +78,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 
 
     // 封装Toast（可兼容子线程）
-    protected void showToast(final CharSequence str) {
+    protected void showToast(BaseActivity act, final CharSequence str) {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(act, str, Toast.LENGTH_SHORT).show();
+                Toast.makeText(BaseActivity.this.act, str, Toast.LENGTH_SHORT).show();
             }
         });
     }

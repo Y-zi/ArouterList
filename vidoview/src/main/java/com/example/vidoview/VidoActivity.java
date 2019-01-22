@@ -3,6 +3,9 @@ package com.example.vidoview;
 import android.content.DialogInterface;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Message;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
@@ -31,6 +34,9 @@ import com.google.gson.reflect.TypeToken;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
 import com.lzy.okgo.model.Result;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 
 import org.json.JSONObject;
 
@@ -48,8 +54,10 @@ public class VidoActivity extends BaseActivity {
     private ViewPagerLayoutManager mLayoutManager;
     private List<DataBean> dataBeanslist;
     private DataBean.Statistics statistics;
-
+//    private SmartRefreshLayout smartpefresh;
     //    AutoCompleteTextView auto;
+
+
     @Override
     protected int getLayoutId() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -60,29 +68,43 @@ public class VidoActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+//        smartpefresh = findViewById(R.id.smartpefresh);
+//        smartpefresh.setEnableLoadMore(true);//开启上拉加载
         mRecyclerView = findViewById(R.id.recycler);
 //        auto=findViewById(R.id.auto);
         dataBeanslist = new ArrayList<>();
 //        dataBeanslist.get
         mLayoutManager = new ViewPagerLayoutManager(act, OrientationHelper.VERTICAL);
 //        AsyncTask;
+        mAdapter = new RvAdapter(dataBeanslist, act);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setAdapter(mAdapter);
 
     }
 
     @Override
     protected void initData() {
 
+
     }
 
     @Override
     protected void initListener() {
+//        smartpefresh.setOnLoadMoreListener(new OnLoadMoreListener() {
+//            @Override
+//            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+//                getData();
+//            }
+//        });
         mLayoutManager.setOnViewPagerListener(new OnViewPagerListener() {
             @Override
             public void onInitComplete() {
+
             }
 
             @Override
             public void onPageRelease(boolean isNext, int position) {
+//                if (!isNext) getData();
                 int index;
                 if (isNext) {
                     index = 0;
@@ -90,6 +112,8 @@ public class VidoActivity extends BaseActivity {
                     index = 1;
                 }
                 releaseVideo(index);
+                if (position == dataBeanslist.size() - 2) getData();
+
             }
 
             @Override
@@ -109,7 +133,7 @@ public class VidoActivity extends BaseActivity {
         HttpUtils.getdate(url, new StringCallback() {
             @Override
             public void onSuccess(Response<String> response) {
-                Log.e("huidiao", response.body());
+//                Log.e("huidiao", response.body());
                 try {
                     JSONObject json = new JSONObject(response.body());
 //                    Result<JsonRootBean> result = JsonUtils.toBean(json.optJSONArray("data"),JsonUtils.newParamType(Result.class,JsonRootBean.class));
@@ -118,19 +142,12 @@ public class VidoActivity extends BaseActivity {
                     }.getType());
                     dataBeanslist.addAll(simlist);
 //                    DataBean.Statistics vList = new Gson().fromJson(json.optJSONArray("statistics").toString(), DataBean.Statistics.class);
-//                    Log.d("rst:" , String.valueOf(vList.getZan()));
-//                    Log.d("msg:" , String.valueOf(vList.getComment()));
-//                    Log.d("data:" , String.valueOf(vList.getPlay()));
-                    mAdapter = new RvAdapter(dataBeanslist, act);
-                    mRecyclerView.setLayoutManager(mLayoutManager);
-                    mRecyclerView.setAdapter(mAdapter);
+
                     mAdapter.notifyDataSetChanged();
                     Log.e("huidiao1", String.valueOf(dataBeanslist.size()));
                 } catch (Exception e) {
                     Log.e("huidiao800", e.toString());
                 }
-
-
             }
 
             @Override
@@ -202,4 +219,11 @@ public class VidoActivity extends BaseActivity {
         imgThumb.animate().alpha(1).start();
         imgPlay.animate().alpha(0f).start();
     }
+
+//    private void refreshData() {
+//        page = 1;
+//        invoiceMainModelList.clear();
+//        getInvoicList();
+//    }
+
 }
