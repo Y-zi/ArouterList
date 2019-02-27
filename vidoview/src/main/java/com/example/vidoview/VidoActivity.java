@@ -48,7 +48,7 @@ public class VidoActivity extends BaseActivity {
     //https://kuaiyinshi.com/api/dou-yin/recommend/
     //https://kuaiyinshi.com/api/kuai-shou/recommend/
     //https://kuaiyinshi.com/api/mei-pai/recommend/
-    private String url = "https://kuaiyinshi.com/api/mei-pai/recommend/";
+    private String url = "https://kuaiyinshi.com/api/kuai-shou/recommend/";
     private RecyclerView mRecyclerView;
     private RvAdapter mAdapter;
     private ViewPagerLayoutManager mLayoutManager;
@@ -70,6 +70,20 @@ public class VidoActivity extends BaseActivity {
     protected void initView() {
 //        smartpefresh = findViewById(R.id.smartpefresh);
 //        smartpefresh.setEnableLoadMore(true);//开启上拉加载
+
+//        AlertDialog.Builder alertDialog1 = new AlertDialog.Builder(act)
+//                .setMessage("选择")
+//                .setNeutralButton("美拍", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//                    }
+//                }).setPositiveButton("快手", new DialogInterface.OnClickListener() {//添加"Yes"按钮
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        url="https://kuaiyinshi.com/api/kuai-shou/recommend/";
+//                    }
+//                });
+//        alertDialog1.show();
         mRecyclerView = findViewById(R.id.recycler);
 //        auto=findViewById(R.id.auto);
         dataBeanslist = new ArrayList<>();

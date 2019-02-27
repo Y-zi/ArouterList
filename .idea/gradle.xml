@@ -8,19 +8,6 @@
         </compositeConfiguration>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/action" />
-            <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/bluetooth" />
-            <option value="$PROJECT_DIR$/common" />
-            <option value="$PROJECT_DIR$/lazyviewpager" />
-            <option value="$PROJECT_DIR$/utils" />
-            <option value="$PROJECT_DIR$/vidoview" />
-            <option value="$PROJECT_DIR$/zhongtai" />
-          </set>
-        </option>
         <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>

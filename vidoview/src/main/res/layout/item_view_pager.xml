@@ -108,7 +108,6 @@
         android:paddingRight="20dp"
         android:textColor="@android:color/white"
         android:text="昵称" />
-
     <TextView
         android:id="@+id/play"
         android:layout_width="match_parent"

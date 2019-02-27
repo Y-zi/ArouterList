@@ -1,6 +1,7 @@
 package com.example.vidoview.adapter;
 
 import android.annotation.SuppressLint;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.bumptech.glide.Glide;
@@ -64,20 +66,27 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
 
         Glide.with(context).load("https:" + dataBean.getVideo_img()).into(viewHolder.video_img);
         Glide.with(context).load("https:" + dataBean.getAvatar()).into(viewHolder.avatar);
-        Log.d("tupian", "https:"+dataBean.getVideo_img()+"\n"+dataBean.getVideo_url()+"\n"+new OpenLock().OpenLock(dataBean.getVideo_url()));
-//        Log.d("jiexi", );
+        Log.d("tupian", "https:" + dataBean.getVideo_img() + "\n" + dataBean.getVideo_url() + "\n" + new OpenLock().OpenLock(dataBean.getVideo_url()));
         //二次封装
 //        PicUtils.builder(context).load("https:" + dataBean.getVideo_img()).build(viewHolder.video_img);
 //        PicUtils.builder(context).load("https:" + dataBean.getAvatar()).build(viewHolder.avatar);
-
         //http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4
         //http://flashmedia.eastday.com/newdate/news/2016-11/shznews1125-19.mp4
         //可用
         //vidourl密文 89 265数字
         //钥匙 175个两位数字
+        String url = String.valueOf(Uri.parse(new OpenLock().OpenLock(dataBean.getVideo_url())));
+        ClipboardManager clip = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        //clip.getText(); // 粘贴
+        clip.setText(url); // 复制
+        if (i == 0) {
+            Toast.makeText(context, "复制成功，可以粘贴发给朋友们了。", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "复制成功下一条地址，可以粘贴发给朋友们了。", Toast.LENGTH_SHORT).show();
+        }
         viewHolder.videoView.setVideoURI(Uri.parse(new OpenLock().OpenLock(dataBean.getVideo_url())));
 //        Log.d("二级", String.valueOf(dataBean.getStatistics().getComment()));
-        viewHolder.zan.setText(String.valueOf(dataBean.getStatistics().getZan())+"赞");
+        viewHolder.zan.setText(String.valueOf(dataBean.getStatistics().getZan()) + "赞");
         viewHolder.comment.setText(String.valueOf(dataBean.getStatistics().getComment()));
         viewHolder.play.setText(String.valueOf(dataBean.getStatistics().getPlay()) + "次播放");
         viewHolder.share.setText(String.valueOf(dataBean.getComments().size()));//！！！！注意，评论次数
@@ -115,13 +124,12 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
             play = itemView.findViewById(R.id.play);
 
             img_play.setOnClickListener(this);
+            comment.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
 
-
         }
     }
-
 }

@@ -17,7 +17,7 @@ public class AppContent {
     // 默认图片
     public static final int placeHolderId = R.mipmap.placehold;
     // 加载错误的图片
-    public static final int errorId = R.mipmap.error;
+    public static final int errorId = R.mipmap.err;
     //加载为空的图片
     public static final int fallbackId=R.mipmap.placehold;
 

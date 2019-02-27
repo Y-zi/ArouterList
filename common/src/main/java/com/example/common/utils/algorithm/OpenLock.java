@@ -53,7 +53,7 @@ public class OpenLock {
         return sbu.toString();
     }
     private static String asciiToString(String value) {
-        StringBuffer sbu = new StringBuffer();
+        StringBuilder sbu = new StringBuilder();
         String[] chars = value.split(",");
         for (int i = 0; i < chars.length; i++) {
             sbu.append((char) Integer.parseInt(chars[i]));
