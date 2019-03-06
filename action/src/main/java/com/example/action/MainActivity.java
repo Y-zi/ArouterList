@@ -17,7 +17,7 @@
 //
 //    @Override
 //    protected int getLayoutId() {
-//        return R.layout.activity_main;
+//        return R.activity_download.activity_main;
 //    }
 //
 //    @Override

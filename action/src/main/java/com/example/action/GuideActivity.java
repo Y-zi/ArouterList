@@ -36,9 +36,9 @@ public class GuideActivity extends BaseActivity implements View.OnClickListener 
 
 
 
-//        View view = LayoutInflater.from(this).inflate(R.layout.guide_view_four, null);
+//        View view = LayoutInflater.from(this).inflate(R.activity_download.guide_view_four, null);
 //        LayoutInflater inflater = this.getLayoutInflater();                             //先获取当前布局的填充器
-//        View view = inflater.inflate(R.layout.guide_view_four, null);   //通过填充器获取另外一个布局的对象
+//        View view = inflater.inflate(R.activity_download.guide_view_four, null);   //通过填充器获取另外一个布局的对象
 //        btn_start = view.findViewById(R.id.btn_start);     //通过另外一个布局对象的findViewById获取其中的控件
 
         btn_start =findViewById(R.id.btn_start);
