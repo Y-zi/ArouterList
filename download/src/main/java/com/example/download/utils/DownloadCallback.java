@@ -1,9 +1,10 @@
 package com.example.download.utils;
 
 /**
- * Created by Will on 2017/3/12.
+ * Created by Y-zi on 2019/8/29
+ * Github:https://github.com/Y-zi
+ * QQ:992063180
  */
-
 public class DownloadCallback implements DownloadListener {
 
     @Override

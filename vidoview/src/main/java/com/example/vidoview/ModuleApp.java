@@ -11,7 +11,9 @@ import com.example.common.utils.http.HttpUtils;
 import io.realm.Realm;
 
 /**
- * Created by Administrator on 2018\12\15 
+ * Created by Y-zi on 2019/8/29
+ * Github:https://github.com/Y-zi
+ * QQ:992063180
  */
 public class ModuleApp extends BaseApplication {
 

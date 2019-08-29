@@ -27,7 +27,9 @@ import static com.example.download.utils.DownloadUtil.STATE_REENQUEUE;
 
 
 /**
- * Created by Will on 2017/3/14.
+ * Created by Y-zi on 2019/8/29
+ * Github:https://github.com/Y-zi
+ * QQ:992063180
  */
 
 public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskViewHolder> {

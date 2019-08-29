@@ -8,6 +8,12 @@ import java.io.RandomAccessFile;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+/**
+ * Created by Y-zi on 2019/8/29
+ * Github:https://github.com/Y-zi
+ * QQ:992063180
+ */
+
 public class SubTask implements Runnable {
     private DownloadRecord record;
     @Expose

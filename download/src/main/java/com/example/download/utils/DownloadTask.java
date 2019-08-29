@@ -8,7 +8,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- * Created by Will on 2017/3/14.
+ * Created by Y-zi on 2019/8/29
+ * Github:https://github.com/Y-zi
+ * QQ:992063180
  */
 
 public class DownloadTask extends AsyncTask<DownloadRecord, Integer, DownloadRecord> {

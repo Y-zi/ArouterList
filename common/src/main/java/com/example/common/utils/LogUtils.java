@@ -4,7 +4,11 @@ import android.util.Log;
 
 import com.example.common.utils.app.AppContent;
 
-
+/**
+ * Created by Y-zi on 2019/8/29
+ * Github:https://github.com/Y-zi
+ * QQ:992063180
+ */
 public class LogUtils {
 
     private static final String defTag = AppContent.DEF_TAG;

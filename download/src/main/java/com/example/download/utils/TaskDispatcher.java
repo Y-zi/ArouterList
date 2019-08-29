@@ -4,8 +4,11 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 /**
- * Created by Will on 2017/3/13.
+ * Created by Y-zi on 2019/8/29
+ * Github:https://github.com/Y-zi
+ * QQ:992063180
  */
+
 public class TaskDispatcher extends Thread {
     private BlockingQueue<DownloadRecord> mRecordQueue;
     private volatile boolean mQuit = false;

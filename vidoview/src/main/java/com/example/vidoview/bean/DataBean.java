@@ -5,10 +5,9 @@ package com.example.vidoview.bean; /**
 import java.util.List;
 
 /**
- * Auto-generated: 2019-01-07 14:40:1
- *
- * @author bejson.com (i@bejson.com)
- * @website http://www.bejson.com/java2pojo/
+ * Created by Y-zi on 2019/8/29
+ * Github:https://github.com/Y-zi
+ * QQ:992063180
  */
 public class DataBean {
 

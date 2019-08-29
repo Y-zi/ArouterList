@@ -1,6 +1,13 @@
 package com.example.download.utils;
 
+/**
+ * Created by Y-zi on 2019/8/29
+ * Github:https://github.com/Y-zi
+ * QQ:992063180
+ */
+
 interface DownloadListener{
+
 
     void onProgress(DownloadRecord record);
 

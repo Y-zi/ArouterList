@@ -2,10 +2,6 @@ package com.example.vidoview;
 
 import android.content.DialogInterface;
 import android.media.MediaPlayer;
-import android.os.AsyncTask;
-import android.os.Handler;
-import android.os.Message;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
@@ -13,42 +9,32 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 
-import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.dingmouren.layoutmanagergroup.viewpager.OnViewPagerListener;
 import com.dingmouren.layoutmanagergroup.viewpager.ViewPagerLayoutManager;
 
-import com.example.common.utils.JsonUtils;
-import com.example.common.utils.LogUtils;
 import com.example.common.utils.app.BaseActivity;
 import com.example.common.utils.http.HttpUtils;
-import com.example.common.utils.http.JsonCallback;
 import com.example.vidoview.adapter.RvAdapter;
 import com.example.vidoview.bean.DataBean;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
-import com.lzy.okgo.model.Result;
-import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-
+/**
+ * Created by Y-zi on 2019/8/29
+ * Github:https://github.com/Y-zi
+ * QQ:992063180
+ */
 public class VidoActivity extends BaseActivity {
-    //https://kuaiyinshi.com/api/dou-yin/recommend/
-    //https://kuaiyinshi.com/api/kuai-shou/recommend/
-    //https://kuaiyinshi.com/api/mei-pai/recommend/
-    private String url = "https://kuaiyinshi.com/api/kuai-shou/recommend/";
     private RecyclerView mRecyclerView;
     private RvAdapter mAdapter;
     private ViewPagerLayoutManager mLayoutManager;
@@ -133,17 +119,21 @@ public class VidoActivity extends BaseActivity {
             @Override
             public void onPageSelected(int position, boolean isBottom) {
 
-                playVideo(0);
+                playVideo();
             }
 
-            public void onLayoutComplete() {
-                playVideo(0);
-            }
+//            public void onLayoutComplete() {
+//                playVideo(0);
+//            }
         });
 
     }
 
     private void getData() {
+        //https://kuaiyinshi.com/api/dou-yin/recommend/
+        //https://kuaiyinshi.com/api/kuai-shou/recommend/
+        //https://kuaiyinshi.com/api/mei-pai/recommend/
+        String url = "https://kuaiyinshi.com/api/kuai-shou/recommend/";
         HttpUtils.getdate(url, new StringCallback() {
             @Override
             public void onSuccess(Response<String> response) {
@@ -181,13 +171,13 @@ public class VidoActivity extends BaseActivity {
         });
     }
 
-    private void playVideo(int position) {
+    private void playVideo() {
         View itemView = mRecyclerView.getChildAt(0);
         final VideoView videoView = itemView.findViewById(R.id.video_view);
         final ImageView imgPlay = itemView.findViewById(R.id.img_play);
         final ImageView imgThumb = itemView.findViewById(R.id.video_img);
-        final MediaPlayer[] mediaPlayer = new MediaPlayer[1];
         videoView.start();
+        final MediaPlayer[] mediaPlayer = new MediaPlayer[1];
         videoView.setOnInfoListener(new MediaPlayer.OnInfoListener() {
             @Override
             public boolean onInfo(MediaPlayer mp, int what, int extra) {

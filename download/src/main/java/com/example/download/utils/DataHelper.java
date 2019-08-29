@@ -14,9 +14,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Will on 2017/3/15.
+ * Created by Y-zi on 2019/8/29
+ * Github:https://github.com/Y-zi
+ * QQ:992063180
  */
-
 class DataHelper {
     private SharedPreferences sp;
     private Gson gson;

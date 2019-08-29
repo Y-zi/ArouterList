@@ -20,24 +20,26 @@ import java.util.concurrent.Semaphore;
 
 
 /**
- * Created by Will on 2017/3/11.
+ * Created by Y-zi on 2019/8/29
+ * Github:https://github.com/Y-zi
+ * QQ:992063180
  */
 
 public class DownloadUtil {
 
-    public static final String ACTION_PROGRESS = BuildConfig.APPLICATION_ID + "action_progress";
-    public static final String ACTION_FINISHED = BuildConfig.APPLICATION_ID + "action_finished";
-    public static final String ACTION_PAUSED = BuildConfig.APPLICATION_ID + "action_paused";
-    public static final String ACTION_FILE_LENGTH_GET = BuildConfig.APPLICATION_ID + "action_file_length_set";
-    public static final String ACTION_FAILED = BuildConfig.APPLICATION_ID + "action_failed";
-    public static final String ACTION_NEW_TASK_ADD = BuildConfig.APPLICATION_ID + "action_new_task_add";
-    public static final String ACTION_RESUME = BuildConfig.APPLICATION_ID + "action_resume";
-    public static final String ACTION_START = BuildConfig.APPLICATION_ID + "action_start";
-    public static final String ACTION_REENQUEUE = BuildConfig.APPLICATION_ID + "action_reenqueue";
-    public static final String ACTION_CANCELED = BuildConfig.APPLICATION_ID + "action_canceled";
+    private static final String ACTION_PROGRESS = BuildConfig.APPLICATION_ID + "action_progress";
+    private static final String ACTION_FINISHED = BuildConfig.APPLICATION_ID + "action_finished";
+    private static final String ACTION_PAUSED = BuildConfig.APPLICATION_ID + "action_paused";
+    private static final String ACTION_FILE_LENGTH_GET = BuildConfig.APPLICATION_ID + "action_file_length_set";
+    private static final String ACTION_FAILED = BuildConfig.APPLICATION_ID + "action_failed";
+    private static final String ACTION_NEW_TASK_ADD = BuildConfig.APPLICATION_ID + "action_new_task_add";
+    private static final String ACTION_RESUME = BuildConfig.APPLICATION_ID + "action_resume";
+    private static final String ACTION_START = BuildConfig.APPLICATION_ID + "action_start";
+    private static final String ACTION_REENQUEUE = BuildConfig.APPLICATION_ID + "action_reenqueue";
+    private static final String ACTION_CANCELED = BuildConfig.APPLICATION_ID + "action_canceled";
 
-    public static final String EXTRA_TASK_ID = BuildConfig.APPLICATION_ID + "extra_task_id";
-    public static final String EXTRA_ERROR_MSG = BuildConfig.APPLICATION_ID + "extra_error_msg";
+    private static final String EXTRA_TASK_ID = BuildConfig.APPLICATION_ID + "extra_task_id";
+    private static final String EXTRA_ERROR_MSG = BuildConfig.APPLICATION_ID + "extra_error_msg";
 
     static ExecutorService sExecutor;
     static Map<String, DownloadRecord> sRecordMap;
