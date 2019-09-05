@@ -60,7 +60,7 @@ public class VidoActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        ARouter.getInstance().inject(this);
+//        ARouter.getInstance().inject(this);
 //        smartpefresh = findViewById(R.id.smartpefresh);
 //        smartpefresh.setEnableLoadMore(true);//开启上拉加载
 
