@@ -10,7 +10,7 @@
         android:layout_centerHorizontal="true"
         android:clipChildren="false" />
 
-    <com.example.action.viewpager.TransforCustomView
+    <com.yuzi.action.viewpager.TransforCustomView
         android:id="@+id/transfor_view"
         android:layout_width="match_parent"
         android:layout_height="450dp"

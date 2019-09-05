@@ -11,7 +11,7 @@
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="match_parent"-->
         <!--android:src="@mipmap/logo"/>-->
-    <com.example.action.viewpager.GuideCustomRL
+    <com.yuzi.action.viewpager.GuideCustomRL
         android:id="@+id/autoviewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
